@@ -5,7 +5,7 @@ export default function Manual(props) {
     <div>
       <div className={`my-3  px-3 py-3 ${props.mode}`}>
         <h2>Preview :-</h2>
-        <p>{}</p>
+        <p>{'Hello, I am Krishnakumar !!!'}</p>
       </div>
       <div className={`my-3  px-3 py-3 ${props.mode}`}>
         <h2>Preview :-</h2>
