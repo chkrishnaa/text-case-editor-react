@@ -5,6 +5,11 @@ import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
 import Manual from "./components/Manual";
 import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -41,7 +46,7 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Navbar
         Title="Text Case Editor"
         mode={mode}
@@ -49,16 +54,23 @@ function App() {
         btnText={btnText}
       />
       <Alert alert={alert} />
-      <div className="my-3 mx-3">
-        <About mode={mode} />
-        <Textform
-          showAlert={showAlert}
-          mode={mode}
-          heading="Analyse your Text here :"
-        />
-        <Manual mode={mode} />
-      </div>
-    </>
+      <Routes>
+        {/* <div className="my-3 mx-3"> */}
+        <Route path="/about" element={<About mode={mode} />}></Route>
+        <Route
+          path="/textform"
+          element={
+            <Textform
+              showAlert={showAlert}
+              mode={mode}
+              heading="Analyse your Text here :"
+            />
+          }
+        ></Route>
+        <Route path="/manual" element={<Manual mode={mode} />}></Route>
+        {/* </div> */}
+      </Routes>
+    </Router>
   );
 }
 
