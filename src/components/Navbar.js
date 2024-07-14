@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <>
-      <nav className={`navbar-expand-lg ${props.mode}`}>
+      <nav className={`navbar-expand-lg ${props.mode} sticky-top`}>
         <div className="container-fluid">
           <div className={`navbar px-3 navbar-${props.mode}`}>
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               {props.Title}
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -27,57 +28,66 @@ export default function Navbar(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    Home
-                  </a>
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/about"
+                  >
+                    About
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/">
-                    Link
-                  </a>
+                  <Link className="nav-link" to="/manual">
+                    Manual
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/textform">
+                    Textform
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="/"
+                    to="/"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Dropdown
-                  </a>
+                  </Link>
                   <ul className={`dropdown-menu drop-${props.mode}`}>
                     <li>
-                      <a
+                      <Link
                         className={`dropdown-item drop-${props.mode}`}
                         href="/"
                       >
                         {props.Contact}
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/">
+                      <Link className="dropdown-item" to="/">
                         Another action
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/">
+                      <Link className="dropdown-item" to="/">
                         Something else here
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link disabled"
                     aria-disabled="true"
-                    href="/"
+                    to="/textform"
                   >
                     Disabled
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <form className="d-flex" role="search">
